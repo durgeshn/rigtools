@@ -33,4 +33,3 @@ def getHighlightedAttribute(sel=None):
         pm.warning('Please select one attribute to load...')
         return False
     return channel[0]
-

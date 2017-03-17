@@ -1,5 +1,6 @@
 import maya.cmds as cmds
 import os
+
 from rigtools.ext import controller
 from rigtools.ext import joint
 from rigtools.ext import skin
@@ -18,6 +19,7 @@ root_dir = os.path.dirname(__file__)
 uiFile = os.path.join(root_dir, 'rigTools_ui.ui')
 skinUIFile = os.path.join(root_dir, 'skinCopy_ui.ui')
 shiftMeshConnUIFile = os.path.join(root_dir, 'shiftInpOutConn_ui.ui')
+aspIkOriChangeUIFile = os.path.join(root_dir, 'aspIKOriChange_ui.ui')
 
 
 def mainWindow():
@@ -161,7 +163,8 @@ def windowCopySkin():
         cmds.deleteUI('skinCopyWindow')
     copySkinUI = cmds.loadUI(f=skinUIFile)
     cmds.showWindow(copySkinUI)
-    cmds.button('sourceMeshLoad_btn', e=True, c='from rigtools.ui import ui_fill;ui_fill.addInTextField("sourceMesh_LE")')
+    cmds.button('sourceMeshLoad_btn', e=True,
+                c='from rigtools.ui import ui_fill;ui_fill.addInTextField("sourceMesh_LE")')
     cmds.button('destMeshLoad_btn', e=True, c='from rigtools.ui import ui_fill;ui_fill.addInTextField("destMesh_LE")')
     cmds.button('copySkin_btn', e=True, c='mainWindow.copySkinOnMultiObjectsConn()')
     cmds.button('skin_copySkin_btn', e=True, c='mainWindow.skinAndCopySkinConn()')

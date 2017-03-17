@@ -1,9 +1,7 @@
 import maya.cmds as cmds
 from rigtools.ext import aspTools
-# from mainWindow import aspIkOriChangeUIFile
-import mainWindow
-reload(mainWindow)
-aspIkOriChangeUIFile = mainWindow.aspIkOriChangeUIFile
+from mainWindow import aspIkOriChangeUIFile
+
 reload(aspTools)
 
 
@@ -16,8 +14,10 @@ def aspIkOriChangeWindowConn():
         cmds.deleteUI('aspIKOriChangeWindow')
     aspIkOriChangeUI = cmds.loadUI(f=aspIkOriChangeUIFile)
     cmds.showWindow(aspIkOriChangeUI)
-    cmds.button('aspIkOriJntLd_btn', e=True, c='from rigtools.ui import ui_fill;ui_fill.addInTextField("aspIkOriJnt_LE")')
-    cmds.button('aspIkOriCtlLd_btn', e=True, c='from rigtools.ui import ui_fill;ui_fill.addInTextField("aspIkOriCtl_LE")')
+    cmds.button('aspIkOriJntLd_btn', e=True,
+                c='from rigtools.ui import ui_fill;ui_fill.addInTextField("aspIkOriJnt_LE")')
+    cmds.button('aspIkOriCtlLd_btn', e=True,
+                c='from rigtools.ui import ui_fill;ui_fill.addInTextField("aspIkOriCtl_LE")')
     cmds.button('aspIkOriSet_btn', e=True, c='aspToolsUiConn.aspIkOriChangeConn()')
 
 
