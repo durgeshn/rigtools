@@ -101,9 +101,12 @@ def selectInfluenceObjConn():
     :return: ui connection
     """
     sel = cmds.ls(sl=True)
-    infObj = skin.getInfluenceJoint(sel)
-    cmds.select(infObj, r=True)
-    print('%s influence objects is selected..' % len(infObj)),
+    if sel:
+        infObj = skin.getInfluenceJoint(sel)
+        cmds.select(infObj, r=True)
+        print('%s influence objects is selected..' % len(infObj)),
+    else:
+        cmds.warning('your selection is empty')
 
 
 # ----------------------------------------------------------------------------

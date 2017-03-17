@@ -17,8 +17,7 @@ def getInfluenceJoint(sel=None):
             infObj = cmds.skinCluster(skc[0], q=True, inf=True)
             return infObj
         else:
-            pm.error('selected object has found multiple skin clusters...')
-            return False
+            raise RuntimeError('selected object has found multiple skin clusters...')
     else:
         pm.warning('Please select one skinned object...')
         return False
