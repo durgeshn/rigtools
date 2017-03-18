@@ -54,8 +54,7 @@ def zeroOut(sel=None):
         for i in range(len(sel)):
             name = sel[i] + 'ZERO'
             if cmds.objExists(name):
-                cmds.error('%s is already exist please rename it and run zeroOut again...' % name)
-                break
+                raise RuntimeError('%s is already exist please rename it and run zeroOut again...' % name)
             else:
                 grp = cmds.group(em=True, w=True, n=name)
                 par = cmds.listRelatives(sel[i], p=True)
@@ -123,8 +122,7 @@ def orientChain(aimValue, objValue, sel=None):
                     cmds.setAttr(allJoints[i] + '.jointOrientZ', 0)
                     cmds.xform(allJoints[i], ro=[0, 0, 0])
         else:
-            cmds.error('%s has no children...' % sel[x])
-            break
+            raise RuntimeError('%s has no children...' % sel[x])
 
 
 def aimConstraintParent(aimValue, objValue, sel=None):
