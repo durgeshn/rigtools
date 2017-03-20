@@ -11,6 +11,11 @@ def fkCtlInIkSpine(startCtl, endCtl, hipCtlGrps, ctlName='Fk_Spine', ctlNum=5):
     :param ctlName: string (keyable)
     :return: fk controllers
     """
+    loc = []
+    for i in range(ctlNum):
+        newLoc = pm.spaceLocator(p=[0, 0, 0])
+        loc.append(newLoc)
+    '''
     # create dummy locators.
     loc1 = pm.spaceLocator(p=[0, 0, 0])
     loc2 = pm.spaceLocator(p=[0, 0, 0])
@@ -21,9 +26,9 @@ def fkCtlInIkSpine(startCtl, endCtl, hipCtlGrps, ctlName='Fk_Spine', ctlNum=5):
     pm.pointConstraint(loc1, loc3, loc2)
     pm.pointConstraint(loc3, loc5, loc4)
     pm.parentConstraint(endCtl, loc5)
-    pm.parentConstraint(startCtl, loc1)
+    pm.parentConstraint(startCtl, loc1)'''
 
-    loc = [loc1, loc2, loc3, loc4, loc5]
+    # loc = [loc1, loc2, loc3, loc4, loc5]
     ctrls = []
     ctrlGrps = []
     for i in range(len(loc[:-1])):
