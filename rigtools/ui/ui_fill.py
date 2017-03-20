@@ -16,4 +16,4 @@ def addInTextField(tField, sel=None):
         pm.warning('Please select one object.')
         return False
     sel = selection.getSelection()[0]
-    pm.textField(tField, e=True, tx=sel)
+    pm.windows.textField(tField, e=True, tx=sel)
