@@ -125,13 +125,14 @@ def orientChain(aimValue, objValue, sel=None):
             raise RuntimeError('%s has no children...' % sel[x])
 
 
-def aimConstraintParent(aimValue, objValue, sel=None):
+def aimConstraintParent(aimValue, objValue, sel=None, mo=True):
     """
     do create aimConstraint according to ui based axis and delete constraint
     then parent first selected object and freeze transformation.
     :param sel: list (joint)
     :param aimValue: list ([1,0,0])
     :param objValue: list ([1,0,0])
+    :param mo: bool (maintain offset set to on or off)
     :return: aimConstraint (deleted.)
     """
     if not sel:
@@ -153,7 +154,8 @@ def aimConstraintParent(aimValue, objValue, sel=None):
                                    wut="object", wuo=loc[0]))
     # parent joint.
     cmds.parent(sel[0], sel[1])
-    cmds.makeIdentity(sel[1], a=True, t=1, r=1, s=1, n=0, pn=1)
+    if mo:
+        cmds.makeIdentity(sel[1], a=True, t=1, r=1, s=1, n=0, pn=1)
     cmds.setAttr(sel[0] + '.jointOrientX', 0)
     cmds.setAttr(sel[0] + '.jointOrientY', 0)
     cmds.setAttr(sel[0] + '.jointOrientZ', 0)
@@ -162,13 +164,14 @@ def aimConstraintParent(aimValue, objValue, sel=None):
     cmds.select(sel[1])
 
 
-def aimConstraint(aimValue, objValue, sel=None):
+def aimConstraint(aimValue, objValue, sel=None, mo=True):
     """
     do create aim constraint according to ui based axis and delete constraint.
     and freeze transform second selected joint.
-    :param sel: list (joint)
     :param aimValue: list ([1,0,0])
     :param objValue: list ([1,0,0])
+    :param sel: list (joint)
+    :param mo: bool (maintain offset set to on or off)
     :return: aimConstraint (deleted.)
     """
     if not sel:
@@ -188,7 +191,8 @@ def aimConstraint(aimValue, objValue, sel=None):
         cmds.move(0, 0, 3, loc[0], r=True, os=True, wd=True)
     cmds.delete(cmds.aimConstraint(sel[0], sel[1], o=[0, 0, 0], w=True, aim=aimValue, u=objValue,
                                    wut="object", wuo=loc[0]))
-    cmds.makeIdentity(sel[1], a=True, t=1, r=1, s=1, n=0, pn=1)
+    if mo:
+        cmds.makeIdentity(sel[1], a=True, t=1, r=1, s=1, n=0, pn=1)
     # delete locator.
     cmds.delete(loc[0])
     cmds.select(sel[1])

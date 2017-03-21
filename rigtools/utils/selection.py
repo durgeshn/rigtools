@@ -28,7 +28,7 @@ def getHighlightedAttribute(sel=None):
         pm.warning('Please select only one object')
         return False
     # get highlighted attribute from channel box.
-    channel = pm.channelBox('mainChannelBox', q=True, sma=True)
+    channel = pm.windows.channelBox('mainChannelBox', q=True, sma=True)
     if not channel or len(channel) != 1:
         pm.warning('Please select one attribute to load...')
         return False
