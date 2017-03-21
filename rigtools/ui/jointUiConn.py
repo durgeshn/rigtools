@@ -38,28 +38,30 @@ def selectAllConn():
     joint.selectAll()
 
 
-def orientChainConn():
+def orientChainConn(aimAxis, objectUpAxis):
     """
     orientChain UI connections.
     :return: ui connection
     """
-    aimAxis = str()
-    objectUpAxis = str()
+    # rtMainUI = rigToolsUI.Ui_mainWindow()
+    # rtMainUI.aimX_rb.isChecked()
+    # aimAxis = str()
+    # objectUpAxis = str()
     aimValue = list()
     objValue = list()
     # radio checks.
-    if cmds.radioButton('aimX_rb', q=True, sl=True):
-        aimAxis = 'X'
-    if cmds.radioButton('aimY_rb', q=True, sl=True):
-        aimAxis = 'Y'
-    if cmds.radioButton('aimZ_rb', q=True, sl=True):
-        aimAxis = 'Z'
-    if cmds.radioButton('aimObX_rb', q=True, sl=True):
-        objectUpAxis = 'X'
-    if cmds.radioButton('aimObY_rb', q=True, sl=True):
-        objectUpAxis = 'Y'
-    if cmds.radioButton('aimObZ_rb', q=True, sl=True):
-        objectUpAxis = 'Z'
+    # if Ui_mainWindow.aimX_rb.isChecked():
+    #     aimAxis = 'X'
+    # if Ui_mainWindow.aimY_rb.isChecked():
+    #     aimAxis = 'Y'
+    # if Ui_mainWindow.aimZ_rb.isChecked():
+    #     aimAxis = 'Z'
+    # if Ui_mainWindow.aimObX_rb.isChecked():
+    #     objectUpAxis = 'X'
+    # if Ui_mainWindow.aimObY_rb.isChecked():
+    #     objectUpAxis = 'Y'
+    # if Ui_mainWindow.aimObZ_rb.isChecked():
+    #     objectUpAxis = 'Z'
     if aimAxis == 'X':
         aimValue = [1, 0, 0]
     if aimAxis == 'Y':
@@ -72,8 +74,12 @@ def orientChainConn():
         objValue = [0, 1, 0]
     if objectUpAxis == 'Z':
         objValue = [0, 0, 1]
-    sel = cmds.ls(sl=True, type='joint')
-    joint.orientChain(aimValue, objValue, sel)
+
+    joint.orientChain([1,0,0], [0,0,1])
+
+    # sel = cmds.ls(sl=True, type='joint')
+    #
+    # joint.orientChain(aimValue, objValue)
 
 
 def aimConstraintConn():

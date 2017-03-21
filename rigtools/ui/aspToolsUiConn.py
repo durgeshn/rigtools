@@ -1,6 +1,6 @@
 import maya.cmds as cmds
 from rigtools.ext import aspTools
-from mainWindow import aspIkOriChangeUIFile
+# from mainWindow import aspIkOriChangeUIFile
 
 reload(aspTools)
 
