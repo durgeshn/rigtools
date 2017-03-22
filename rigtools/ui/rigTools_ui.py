@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'D:\Amol Rupnar\uis\rigTools_ui.ui'
+# Form implementation generated from reading ui file 'T:\amol\bit_bucket\rigtools\rigtools\ui\rigTools_ui.ui'
 #
-# Created: Tue Mar 21 14:49:15 2017
+# Created: Wed Mar 22 17:54:02 2017
 #      by: pyside-uic 0.2.14 running on PySide 1.2.0
 #
 # WARNING! All changes made in this file will be lost!
 
 from PySide import QtCore, QtGui
+
 
 class Ui_mainWindow(object):
     def setupUi(self, mainWindow):
@@ -218,56 +219,97 @@ class Ui_mainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(mainWindow)
 
     def retranslateUi(self, mainWindow):
-        mainWindow.setWindowTitle(QtGui.QApplication.translate("mainWindow", "RigTools MainWindow", None, QtGui.QApplication.UnicodeUTF8))
-        self.sanity_check_btn.setText(QtGui.QApplication.translate("mainWindow", "sanity_check", None, QtGui.QApplication.UnicodeUTF8))
-        self.joint_groupBox.setTitle(QtGui.QApplication.translate("mainWindow", "Joint", None, QtGui.QApplication.UnicodeUTF8))
-        self.parent_btn.setText(QtGui.QApplication.translate("mainWindow", "parent", None, QtGui.QApplication.UnicodeUTF8))
-        self.aimCons_groupBox.setTitle(QtGui.QApplication.translate("mainWindow", "Aim Constraint And Orient two Joints and Hirarchy", None, QtGui.QApplication.UnicodeUTF8))
-        self.aim_constraint_btn.setText(QtGui.QApplication.translate("mainWindow", "aim_constraint", None, QtGui.QApplication.UnicodeUTF8))
-        self.aim_constraint_parent_btn.setText(QtGui.QApplication.translate("mainWindow", "aim_constraint_parent", None, QtGui.QApplication.UnicodeUTF8))
-        self.orient_chain_btn.setText(QtGui.QApplication.translate("mainWindow", "orient_chain", None, QtGui.QApplication.UnicodeUTF8))
+        mainWindow.setWindowTitle(
+            QtGui.QApplication.translate("mainWindow", "RigTools MainWindow", None, QtGui.QApplication.UnicodeUTF8))
+        self.sanity_check_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "sanity_check", None, QtGui.QApplication.UnicodeUTF8))
+        self.joint_groupBox.setTitle(
+            QtGui.QApplication.translate("mainWindow", "Joint", None, QtGui.QApplication.UnicodeUTF8))
+        self.parent_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "parent", None, QtGui.QApplication.UnicodeUTF8))
+        self.aimCons_groupBox.setTitle(
+            QtGui.QApplication.translate("mainWindow", "Aim Constraint And Orient two Joints and Hirarchy", None,
+                                         QtGui.QApplication.UnicodeUTF8))
+        self.aim_constraint_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "aim_constraint", None, QtGui.QApplication.UnicodeUTF8))
+        self.aim_constraint_parent_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "aim_constraint_parent", None, QtGui.QApplication.UnicodeUTF8))
+        self.orient_chain_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "orient_chain", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("mainWindow", "aim axis", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_2.setText(QtGui.QApplication.translate("mainWindow", "object up axis", None, QtGui.QApplication.UnicodeUTF8))
-        self.none_Orient_btn.setText(QtGui.QApplication.translate("mainWindow", "none_Orient", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(
+            QtGui.QApplication.translate("mainWindow", "object up axis", None, QtGui.QApplication.UnicodeUTF8))
+        self.none_Orient_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "none_Orient", None, QtGui.QApplication.UnicodeUTF8))
         self.aimX_rb.setText(QtGui.QApplication.translate("mainWindow", "X", None, QtGui.QApplication.UnicodeUTF8))
         self.aimY_rb.setText(QtGui.QApplication.translate("mainWindow", "Y", None, QtGui.QApplication.UnicodeUTF8))
         self.aimZ_rb.setText(QtGui.QApplication.translate("mainWindow", "Z", None, QtGui.QApplication.UnicodeUTF8))
         self.aimObX_rb.setText(QtGui.QApplication.translate("mainWindow", "X", None, QtGui.QApplication.UnicodeUTF8))
         self.aimObY_rb.setText(QtGui.QApplication.translate("mainWindow", "Y", None, QtGui.QApplication.UnicodeUTF8))
         self.aimObZ_rb.setText(QtGui.QApplication.translate("mainWindow", "Z", None, QtGui.QApplication.UnicodeUTF8))
-        self.multipleCons_groupBox.setTitle(QtGui.QApplication.translate("mainWindow", "Constraint Multiple Object", None, QtGui.QApplication.UnicodeUTF8))
-        self.point_constraint_btn.setText(QtGui.QApplication.translate("mainWindow", "point_constraint", None, QtGui.QApplication.UnicodeUTF8))
-        self.orient_constraint_btn.setText(QtGui.QApplication.translate("mainWindow", "orient_constraint", None, QtGui.QApplication.UnicodeUTF8))
-        self.parent_constraint_btn.setText(QtGui.QApplication.translate("mainWindow", "parent_constraint", None, QtGui.QApplication.UnicodeUTF8))
-        self.maintainOffset_cb.setText(QtGui.QApplication.translate("mainWindow", "Maintain Offset", None, QtGui.QApplication.UnicodeUTF8))
-        self.Zero_Out_btn.setText(QtGui.QApplication.translate("mainWindow", "Zero_Out", None, QtGui.QApplication.UnicodeUTF8))
-        self.jointSel_btn.setText(QtGui.QApplication.translate("mainWindow", "joint@sel", None, QtGui.QApplication.UnicodeUTF8))
-        self.Select_All_btn.setText(QtGui.QApplication.translate("mainWindow", "Select_All", None, QtGui.QApplication.UnicodeUTF8))
-        self.Find_Duplicates_btn.setText(QtGui.QApplication.translate("mainWindow", "Find_Duplicates", None, QtGui.QApplication.UnicodeUTF8))
-        self.controller_groupBox.setTitle(QtGui.QApplication.translate("mainWindow", "Controller", None, QtGui.QApplication.UnicodeUTF8))
+        self.multipleCons_groupBox.setTitle(
+            QtGui.QApplication.translate("mainWindow", "Constraint Multiple Object", None,
+                                         QtGui.QApplication.UnicodeUTF8))
+        self.point_constraint_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "point_constraint", None, QtGui.QApplication.UnicodeUTF8))
+        self.orient_constraint_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "orient_constraint", None, QtGui.QApplication.UnicodeUTF8))
+        self.parent_constraint_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "parent_constraint", None, QtGui.QApplication.UnicodeUTF8))
+        self.maintainOffset_cb.setText(
+            QtGui.QApplication.translate("mainWindow", "Maintain Offset", None, QtGui.QApplication.UnicodeUTF8))
+        self.Zero_Out_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "Zero_Out", None, QtGui.QApplication.UnicodeUTF8))
+        self.jointSel_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "joint@sel", None, QtGui.QApplication.UnicodeUTF8))
+        self.Select_All_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "Select_All", None, QtGui.QApplication.UnicodeUTF8))
+        self.Find_Duplicates_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "Find_Duplicates", None, QtGui.QApplication.UnicodeUTF8))
+        self.controller_groupBox.setTitle(
+            QtGui.QApplication.translate("mainWindow", "Controller", None, QtGui.QApplication.UnicodeUTF8))
         self.FK_btn.setText(QtGui.QApplication.translate("mainWindow", "FK", None, QtGui.QApplication.UnicodeUTF8))
-        self.FK_Proxy_btn.setText(QtGui.QApplication.translate("mainWindow", "FK_Proxy", None, QtGui.QApplication.UnicodeUTF8))
+        self.FK_Proxy_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "FK_Proxy", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("mainWindow", "axis", None, QtGui.QApplication.UnicodeUTF8))
-        self.negTrans_cb.setText(QtGui.QApplication.translate("mainWindow", "Neg Trans", None, QtGui.QApplication.UnicodeUTF8))
+        self.negTrans_cb.setText(
+            QtGui.QApplication.translate("mainWindow", "Neg Trans", None, QtGui.QApplication.UnicodeUTF8))
         self.ctlAxis_X_rb.setText(QtGui.QApplication.translate("mainWindow", "X", None, QtGui.QApplication.UnicodeUTF8))
         self.ctlAxis_Y_rb.setText(QtGui.QApplication.translate("mainWindow", "Y", None, QtGui.QApplication.UnicodeUTF8))
         self.ctlAxis_Z_rb.setText(QtGui.QApplication.translate("mainWindow", "Z", None, QtGui.QApplication.UnicodeUTF8))
-        self.skin_groupBox.setTitle(QtGui.QApplication.translate("mainWindow", "Skin", None, QtGui.QApplication.UnicodeUTF8))
-        self.select_Influence_object_btn.setText(QtGui.QApplication.translate("mainWindow", "select_Influence_object", None, QtGui.QApplication.UnicodeUTF8))
-        self.copySkinOnMultipleObject_btn.setText(QtGui.QApplication.translate("mainWindow", "Copy Skin UI", None, QtGui.QApplication.UnicodeUTF8))
-        self.ShiftShapeConnections_btn.setText(QtGui.QApplication.translate("mainWindow", "Shift Shape Connections", None, QtGui.QApplication.UnicodeUTF8))
-        self.Renamer_btn.setText(QtGui.QApplication.translate("mainWindow", "Renamer", None, QtGui.QApplication.UnicodeUTF8))
-        self.advanceSkeleton_groupBox.setTitle(QtGui.QApplication.translate("mainWindow", "Advance Skeleton Scripts", None, QtGui.QApplication.UnicodeUTF8))
-        self.IK_Orient_btn.setText(QtGui.QApplication.translate("mainWindow", "IK_Orient", None, QtGui.QApplication.UnicodeUTF8))
-        self.FingerSDK_btn.setText(QtGui.QApplication.translate("mainWindow", "FingerSDK", None, QtGui.QApplication.UnicodeUTF8))
-        self.FK_in_IKSpine_btn.setText(QtGui.QApplication.translate("mainWindow", "FK_in_IKSpine", None, QtGui.QApplication.UnicodeUTF8))
-        self.Follow_groupBox.setTitle(QtGui.QApplication.translate("mainWindow", "Follow", None, QtGui.QApplication.UnicodeUTF8))
-        self.IKArm_btn.setText(QtGui.QApplication.translate("mainWindow", "IKArm", None, QtGui.QApplication.UnicodeUTF8))
-        self.PoleArm_btn.setText(QtGui.QApplication.translate("mainWindow", "PoleArm", None, QtGui.QApplication.UnicodeUTF8))
-        self.Hide_Extra_Joints_btn.setText(QtGui.QApplication.translate("mainWindow", "Hide_Extra_Joints", None, QtGui.QApplication.UnicodeUTF8))
-        self.otherScript_groupBox.setTitle(QtGui.QApplication.translate("mainWindow", "Other Script", None, QtGui.QApplication.UnicodeUTF8))
-        self.WireTool_btn.setText(QtGui.QApplication.translate("mainWindow", "WireTool", None, QtGui.QApplication.UnicodeUTF8))
+        self.skin_groupBox.setTitle(
+            QtGui.QApplication.translate("mainWindow", "Skin", None, QtGui.QApplication.UnicodeUTF8))
+        self.select_Influence_object_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "select_Influence_object", None, QtGui.QApplication.UnicodeUTF8))
+        self.copySkinOnMultipleObject_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "Copy Skin UI", None, QtGui.QApplication.UnicodeUTF8))
+        self.ShiftShapeConnections_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "Shift Shape Connections", None, QtGui.QApplication.UnicodeUTF8))
+        self.Renamer_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "Renamer", None, QtGui.QApplication.UnicodeUTF8))
+        self.advanceSkeleton_groupBox.setTitle(
+            QtGui.QApplication.translate("mainWindow", "Advance Skeleton Scripts", None,
+                                         QtGui.QApplication.UnicodeUTF8))
+        self.IK_Orient_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "IK_Orient", None, QtGui.QApplication.UnicodeUTF8))
+        self.FingerSDK_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "FingerSDK", None, QtGui.QApplication.UnicodeUTF8))
+        self.FK_in_IKSpine_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "FK_in_IKSpine", None, QtGui.QApplication.UnicodeUTF8))
+        self.Follow_groupBox.setTitle(
+            QtGui.QApplication.translate("mainWindow", "Follow", None, QtGui.QApplication.UnicodeUTF8))
+        self.IKArm_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "IKArm", None, QtGui.QApplication.UnicodeUTF8))
+        self.PoleArm_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "PoleArm", None, QtGui.QApplication.UnicodeUTF8))
+        self.Hide_Extra_Joints_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "Hide_Extra_Joints", None, QtGui.QApplication.UnicodeUTF8))
+        self.otherScript_groupBox.setTitle(
+            QtGui.QApplication.translate("mainWindow", "Other Script", None, QtGui.QApplication.UnicodeUTF8))
+        self.WireTool_btn.setText(
+            QtGui.QApplication.translate("mainWindow", "WireTool", None, QtGui.QApplication.UnicodeUTF8))
         self.menuMenu.setTitle(QtGui.QApplication.translate("mainWindow", "Menu", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionFile.setText(QtGui.QApplication.translate("mainWindow", "File", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionExit.setText(QtGui.QApplication.translate("mainWindow", "Exit", None, QtGui.QApplication.UnicodeUTF8))
-
+        self.actionFile.setText(
+            QtGui.QApplication.translate("mainWindow", "File", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionExit.setText(
+            QtGui.QApplication.translate("mainWindow", "Exit", None, QtGui.QApplication.UnicodeUTF8))

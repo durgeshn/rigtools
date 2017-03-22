@@ -1,20 +1,24 @@
 import os
 
+import maya.OpenMayaUI as omui
 import maya.cmds as cmds
+from PySide import QtGui
+from shiboken import wrapInstance
 
-from rigtools.ext import joint
 from rigtools.ext import gen
 from rigtools.ext import selection
 from rigtools.ext import skin
+from rigtools.ui import rigTools_ui
 from rigtools.ui import ui_fill
+from rigtools.ui.utilsUI import jointConn
 from rigtools.utils import fk
 
-reload(joint)
 reload(gen)
 reload(skin)
 reload(ui_fill)
 reload(selection)
 reload(fk)
+reload(jointConn)
 
 root_dir = os.path.dirname(__file__)
 uiFile = os.path.join(root_dir, 'rigTools_ui.ui')
@@ -23,45 +27,46 @@ shiftMeshConnUIFile = os.path.join(root_dir, 'shiftInpOutConn_ui.ui')
 aspIkOriChangeUIFile = os.path.join(root_dir, 'aspIKOriChange_ui.ui')
 
 
-def mainWindow():
+def maya_main_window():
     """
-    rigtools main window button connections.
-    :return: ui
+    This is to get the maya window QT pointer.
+    :return:
+    :rtype:
     """
-    # open Window.
-    if cmds.window('mainWindow', exists=True):
-        cmds.deleteUI('mainWindow')
-    rigToolUI = cmds.loadUI(f=uiFile)
-    cmds.showWindow(rigToolUI)
-    # joint button connections.
-    cmds.button('jointSel_btn', e=True, c='from rigtools.ui import jointUiConn; jointUiConn.jointsOnSelectionConn()')
-    cmds.button('parent_btn', e=True, c='from rigtools.ui import jointUiConn; jointUiConn.parentHirarchyConn()')
-    cmds.button('Zero_Out_btn', e=True, c='from rigtools.ui import jointUiConn; jointUiConn.zeroOutConn()')
-    cmds.button('Select_All_btn', e=True, c='from rigtools.ui import jointUiConn; jointUiConn.selectAllConn()')
-    cmds.button('orient_chain_btn', e=True, c='from rigtools.ui import jointUiConn; jointUiConn.orientChainConn()')
-    cmds.button('aim_constraint_btn', e=True, c='from rigtools.ui import jointUiConn; jointUiConn.aimConstraintConn()')
-    cmds.button('aim_constraint_parent_btn', e=True,
-                c='from rigtools.ui import jointUiConn; jointUiConn.aimConstraintParentConn()')
-    cmds.button('none_Orient_btn', e=True, c='from rigtools.ui import jointUiConn; jointUiConn.noneOrientConn()')
-    cmds.button('point_constraint_btn', e=True,
-                c='from rigtools.ui import jointUiConn; jointUiConn.multiPointConstraintConn()')
-    cmds.button('orient_constraint_btn', e=True,
-                c='from rigtools.ui import jointUiConn; jointUiConn.multiOrientConstraintConn()')
-    cmds.button('parent_constraint_btn', e=True,
-                c='from rigtools.ui import jointUiConn; jointUiConn.multiParentConstraintConn()')
-    # controller button connections.
-    cmds.button('FK_btn', e=True, c='mainWindow.fkchainConn()')
-    # gen button connections.
-    cmds.button('Find_Duplicates_btn', e=True, c='from rigtools.utils import gen;gen.findDuplicates()')
-    # skin button connections.
-    cmds.button('select_Influence_object_btn', e=True, c='mainWindow.selectInfluenceObjConn()')
-    cmds.button('copySkinOnMultipleObject_btn', e=True, c='mainWindow.windowCopySkin()')
-    cmds.button('ShiftShapeConnections_btn', e=True, c='mainWindow.windowShiftMeshConnections()')
-    # asp tool button connections.
-    cmds.button('IK_Orient_btn', e=True,
-                c='from rigtools.ui import aspToolsUiConn;aspToolsUiConn.aspIkOriChangeWindowConn()')
-    cmds.button('Hide_Extra_Joints_btn', e=True,
-                c='from rigtools.ui import aspToolsUiConn;aspToolsUiConn.changeDrawStyleOfExtraJointsConn()')
+    main_window_ptr = omui.MQtUtil.mainWindow()
+    return wrapInstance(long(main_window_ptr), QtGui.QWidget)
+
+
+class RigToolsWindow(QtGui.QMainWindow, rigTools_ui.Ui_mainWindow):
+    def __init__(self, prnt=None):
+        super(RigToolsWindow, self).__init__(prnt)
+        self.setupUi(self)
+        self.undoStack = QtGui.QUndoStack(self)
+        self.connections()
+
+    def connections(self):
+        self.jointSel_btn.clicked.connect(jointConn.jointsOnSelectionConn)
+        self.parent_btn.clicked.connect(jointConn.parentHirarchyConn)
+        self.Zero_Out_btn.clicked.connect(jointConn.zeroOutConn)
+        self.Select_All_btn.clicked.connect(jointConn.selectAllConn)
+        # self.orient_chain_btn.clicked.connect(self.aa)
+        self.aim_constraint_btn.clicked.connect(jointConn.aimConstraintConn)
+        self.aim_constraint_parent_btn.clicked.connect(jointConn.aimConstraintParentConn)
+        self.none_Orient_btn.clicked.connect(jointConn.noneOrientConn)
+        self.point_constraint_btn.clicked.connect(jointConn.multiPointConstraintConn)
+        self.orient_constraint_btn.clicked.connect(jointConn.multiOrientConstraintConn)
+        self.parent_constraint_btn.clicked.connect(jointConn.multiParentConstraintConn)
+        # self.FK_btn.clicked.connect(fkchainConn)
+        self.Find_Duplicates_btn.clicked.connect(gen.findDuplicates)
+        # self.select_Influence_object_btn.clicked.connect(selectInfluenceObjConn)
+        # self.copySkinOnMultipleObject_btn.clicked.connect(windowCopySkin)
+        # self.ShiftShapeConnections_btn.clicked.connect(windowShiftMeshConnections)
+        # self.IK_Orient_btn.clicked.connect(aspToolsUiConn.aspIkOriChangeWindowConn)
+
+        # self.Hide_Extra_Joints_btn.clicked.connect(aspToolsUiConn.changeDrawStyleOfExtraJointsConn)
+
+
+show = RigToolsWindow(maya_main_window())
 
 
 def fkchainConn():
@@ -77,7 +82,7 @@ def fkchainConn():
         axis = [0, 1, 0]
     if cmds.radioButton('ctlAxis_Z_rb', q=True, sl=True):
         axis = [0, 0, 1]
-    rigtools.utils.fk.fkchain(axis)
+    fk.fkchain(axis)
 
 
 def fkProxyConn():
@@ -93,7 +98,7 @@ def fkProxyConn():
         axis = [0, 1, 0]
     if cmds.radioButton('ctlAxis_Z_rb', q=True, sl=True):
         axis = [0, 0, 1]
-    rigtools.utils.fk.fkProxy(axis)
+    fk.fkProxy(axis)
 
 
 def selectInfluenceObjConn():

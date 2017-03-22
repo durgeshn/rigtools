@@ -1,5 +1,5 @@
 import pymel.core as pm
-from maya import cmds as cmds
+import maya.cmds as cmds
 
 
 def findDuplicates():
@@ -105,11 +105,3 @@ def zeroOut(sel=None):
                     pass
                 else:
                     cmds.parent(grp, par[0])
-
-
-def selectAll():
-    """
-    select hierarchy of all selected objects.
-    :return: hierarchy
-    """
-    cmds.select(hi=True)

@@ -1,4 +1,5 @@
 import pymel.core as pm
+
 import maya.cmds as cmds
 
 
@@ -33,3 +34,11 @@ def getHighlightedAttribute(sel=None):
         pm.warning('Please select one attribute to load...')
         return False
     return channel[0]
+
+
+def selectAll():
+    """
+    select hierarchy of all selected objects.
+    :return: hierarchy
+    """
+    cmds.select(hi=True)
