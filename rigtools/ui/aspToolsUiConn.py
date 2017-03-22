@@ -1,8 +1,7 @@
 import maya.cmds as cmds
-from rigtools.ext import aspTools
-# from mainWindow import aspIkOriChangeUIFile
 
-reload(aspTools)
+import rigtools.aspTools.tools
+from mainWindow import aspIkOriChangeUIFile
 
 
 def aspIkOriChangeWindowConn():
@@ -24,7 +23,7 @@ def aspIkOriChangeWindowConn():
 def aspIkOriChangeConn():
     joint = cmds.textField('aspIkOriJnt_LE', q=True, tx=True)
     controller = cmds.textField('aspIkOriCtl_LE', q=True, tx=True)
-    aspTools.asIKCtlOriChange(joint, controller)
+    rigtools.aspTools.tools.asIKCtlOriChange(joint, controller)
 
 
 def changeDrawStyleOfExtraJointsConn():
@@ -32,7 +31,7 @@ def changeDrawStyleOfExtraJointsConn():
     changeDrawStyleOfExtraJoints UI connections.
     :return: ui connection
     """
-    aspTools.changeDrawStyleOfExtraJoints()
+    rigtools.aspTools.tools.changeDrawStyleOfExtraJoints()
 
 
 def addIKArmFollowSwitch():

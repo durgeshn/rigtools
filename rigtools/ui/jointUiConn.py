@@ -1,5 +1,8 @@
 from maya import cmds as cmds
 
+import rigtools.ext.gen
+import rigtools.utils.constraint
+import rigtools.utils.joint
 from rigtools.ext import joint
 
 
@@ -9,7 +12,7 @@ def jointsOnSelectionConn():
     :return: ui connection
     """
     sel = cmds.ls(sl=True)
-    joint.jointsOnSelection(sel)
+    rigtools.utils.joint.jointsOnSelection(sel)
 
 
 def parentHirarchyConn():
@@ -18,7 +21,7 @@ def parentHirarchyConn():
     :return: ui connection
     """
     sel = cmds.ls(sl=True)
-    joint.parentHirarchy(sel)
+    rigtools.ext.gen.parentHirarchy(sel)
 
 
 def zeroOutConn():
@@ -27,7 +30,7 @@ def zeroOutConn():
     :return: ui connection
     """
     sel = cmds.ls(sl=True)
-    joint.zeroOut(sel)
+    rigtools.ext.gen.zeroOut(sel)
 
 
 def selectAllConn():
@@ -35,33 +38,31 @@ def selectAllConn():
     selectAll UI connections.
     :return: ui connections
     """
-    joint.selectAll()
+    rigtools.ext.gen.selectAll()
 
 
-def orientChainConn(aimAxis, objectUpAxis):
+def orientChainConn():
     """
     orientChain UI connections.
     :return: ui connection
     """
-    # rtMainUI = rigToolsUI.Ui_mainWindow()
-    # rtMainUI.aimX_rb.isChecked()
-    # aimAxis = str()
-    # objectUpAxis = str()
+    aimAxis = str()
+    objectUpAxis = str()
     aimValue = list()
     objValue = list()
     # radio checks.
-    # if Ui_mainWindow.aimX_rb.isChecked():
-    #     aimAxis = 'X'
-    # if Ui_mainWindow.aimY_rb.isChecked():
-    #     aimAxis = 'Y'
-    # if Ui_mainWindow.aimZ_rb.isChecked():
-    #     aimAxis = 'Z'
-    # if Ui_mainWindow.aimObX_rb.isChecked():
-    #     objectUpAxis = 'X'
-    # if Ui_mainWindow.aimObY_rb.isChecked():
-    #     objectUpAxis = 'Y'
-    # if Ui_mainWindow.aimObZ_rb.isChecked():
-    #     objectUpAxis = 'Z'
+    if cmds.radioButton('aimX_rb', q=True, sl=True):
+        aimAxis = 'X'
+    if cmds.radioButton('aimY_rb', q=True, sl=True):
+        aimAxis = 'Y'
+    if cmds.radioButton('aimZ_rb', q=True, sl=True):
+        aimAxis = 'Z'
+    if cmds.radioButton('aimObX_rb', q=True, sl=True):
+        objectUpAxis = 'X'
+    if cmds.radioButton('aimObY_rb', q=True, sl=True):
+        objectUpAxis = 'Y'
+    if cmds.radioButton('aimObZ_rb', q=True, sl=True):
+        objectUpAxis = 'Z'
     if aimAxis == 'X':
         aimValue = [1, 0, 0]
     if aimAxis == 'Y':
@@ -74,12 +75,8 @@ def orientChainConn(aimAxis, objectUpAxis):
         objValue = [0, 1, 0]
     if objectUpAxis == 'Z':
         objValue = [0, 0, 1]
-
-    joint.orientChain([1,0,0], [0,0,1])
-
-    # sel = cmds.ls(sl=True, type='joint')
-    #
-    # joint.orientChain(aimValue, objValue)
+    sel = cmds.ls(sl=True, type='joint')
+    rigtools.utils.joint.orientChain(aimValue, objValue, sel)
 
 
 def aimConstraintConn():
@@ -117,7 +114,7 @@ def aimConstraintConn():
     if objectUpAxis == 'Z':
         objValue = [0, 0, 1]
     sel = cmds.ls(sl=True)
-    joint.aimConstraint(aimValue, objValue, sel)
+    rigtools.utils.constraint.aimConstraint(aimValue, objValue, sel)
 
 
 def aimConstraintParentConn():
@@ -155,7 +152,7 @@ def aimConstraintParentConn():
     if objectUpAxis == 'Z':
         objValue = [0, 0, 1]
     sel = cmds.ls(sl=True, type='joint')
-    joint.aimConstraintParent(aimValue, objValue, sel)
+    rigtools.utils.constraint.aimConstraintParent(aimValue, objValue, sel)
 
 
 def noneOrientConn():
@@ -164,7 +161,7 @@ def noneOrientConn():
     :return: ui connection
     """
     sel = cmds.ls(sl=True)
-    joint.noneOrient(sel)
+    rigtools.utils.joint.noneOrient(sel)
 
 
 def multiPointConstraintConn():
@@ -174,7 +171,7 @@ def multiPointConstraintConn():
     """
     sel = cmds.ls(sl=True)
     cbVal = cmds.checkBox('maintainOffset_cb', q=True, v=True)
-    joint.multiPointConstraint(cbVal, sel)
+    rigtools.utils.constraint.multiPointConstraint(cbVal, sel)
 
 
 def multiOrientConstraintConn():
@@ -184,7 +181,7 @@ def multiOrientConstraintConn():
     """
     sel = cmds.ls(sl=True)
     cbVal = cmds.checkBox('maintainOffset_cb', q=True, v=True)
-    joint.multiOrientConstraint(cbVal, sel)
+    rigtools.utils.constraint.multiOrientConstraint(cbVal, sel)
 
 
 def multiParentConstraintConn():
@@ -194,4 +191,4 @@ def multiParentConstraintConn():
     """
     sel = cmds.ls(sl=True)
     cbVal = cmds.checkBox('maintainOffset_cb', q=True, v=True)
-    joint.multiParentConstraint(cbVal, sel)
+    rigtools.utils.constraint.multiParentConstraint(cbVal, sel)

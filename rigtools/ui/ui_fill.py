@@ -1,6 +1,7 @@
-import pymel.core as pm
 import maya.cmds as cmds
-from rigtools.utils import selection
+import pymel.core as pm
+
+from rigtools.ext import selection
 
 
 def addInTextField(tField, sel=None):
