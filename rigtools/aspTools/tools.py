@@ -36,6 +36,7 @@ def asIKCtlOriChange(joint, controller):
                                      qExtra[0], qExtra[1], qExtra[2], 'IKExtra' + controller[2:]))
     cmds.setAttr('buildPose.udAttr', newAttrss, type="string")
     cmds.select(controller, r=True)
+    print ('{0} orientation changed... '.format(controller)),
     return controller
 
 

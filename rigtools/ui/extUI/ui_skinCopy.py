@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'T:\amol\bit_bucket\rigtools\rigtools\ui\skinCopy_ui.ui'
+# Form implementation generated from reading ui file 'T:\amol\bit_bucket\rigtools\rigtools\ui\extUI\ui_skinCopy.ui'
 #
-# Created: Wed Mar 22 17:54:13 2017
+# Created: Thu Mar 23 12:43:07 2017
 #      by: pyside-uic 0.2.14 running on PySide 1.2.0
 #
 # WARNING! All changes made in this file will be lost!

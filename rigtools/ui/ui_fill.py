@@ -1,20 +1,17 @@
-import maya.cmds as cmds
 import pymel.core as pm
 
-from rigtools.ext import selection
 
-
-def addInTextField(tField, sel=None):
+def fillLineEdit(lineEdit, sel=None):
     """
-    add Text in Window Text Field.
-    :param tField: str (textField Name)
-    :param sel: str (text you want to add in text field)
-    :return: textField fill
+    add selection in window line edit.
+    :param lineEdit: string
+    :param sel: list
+    :return: line edit fill
     """
     if not sel:
-        sel = cmds.ls(sl=True)
+        sel = pm.ls(sl=True)
     if not sel:
-        pm.warning('Please select one object.')
-        return False
-    sel = selection.getSelection()[0]
-    pm.windows.textField(tField, e=True, tx=sel)
+        raise RuntimeError('Please select only one object')
+    elif len(sel) > 1:
+        raise RuntimeError('more than one objects selected.')
+    lineEdit.setText(str(sel[0]))

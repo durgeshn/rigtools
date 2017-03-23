@@ -6,26 +6,20 @@ from PySide import QtGui
 from shiboken import wrapInstance
 
 from rigtools.ext import gen
-from rigtools.ext import selection
-from rigtools.ext import skin
 from rigtools.ui import rigTools_ui
-from rigtools.ui import ui_fill
 from rigtools.ui.utilsUI import utilsConn
 from rigtools.ui.extUI import extConn
-from rigtools.utils import fk
+from rigtools.ui.aspToolsUI import winIkOriChange
 
 reload(gen)
-reload(skin)
-reload(ui_fill)
-reload(selection)
-reload(fk)
+reload(rigTools_ui)
+reload(winIkOriChange)
 reload(utilsConn)
+reload(extConn)
 
 root_dir = os.path.dirname(__file__)
-uiFile = os.path.join(root_dir, 'rigTools_ui.ui')
 skinUIFile = os.path.join(root_dir, 'skinCopy_ui.ui')
 shiftMeshConnUIFile = os.path.join(root_dir, 'shiftInpOutConn_ui.ui')
-aspIkOriChangeUIFile = os.path.join(root_dir, 'aspIKOriChange_ui.ui')
 
 
 def maya_main_window():
@@ -38,11 +32,10 @@ def maya_main_window():
     return wrapInstance(long(main_window_ptr), QtGui.QWidget)
 
 
-class RigToolsWindow(QtGui.QMainWindow, rigTools_ui.Ui_mainWindow):
+class RigToolsUIConn(QtGui.QMainWindow, rigTools_ui.Ui_mainWindow):
     def __init__(self, prnt=None):
-        super(RigToolsWindow, self).__init__(prnt)
+        super(RigToolsUIConn, self).__init__(prnt)
         self.setupUi(self)
-        self.undoStack = QtGui.QUndoStack(self)
         self.connections()
 
     def connections(self):
@@ -62,12 +55,11 @@ class RigToolsWindow(QtGui.QMainWindow, rigTools_ui.Ui_mainWindow):
         # self.select_Influence_object_btn.clicked.connect(selectInfluenceObjConn)
         # self.copySkinOnMultipleObject_btn.clicked.connect(windowCopySkin)
         # self.ShiftShapeConnections_btn.clicked.connect(windowShiftMeshConnections)
-        # self.IK_Orient_btn.clicked.connect(aspToolsUiConn.aspIkOriChangeWindowConn)
-
+        self.IK_Orient_btn.clicked.connect(winIkOriChange.main)
         # self.Hide_Extra_Joints_btn.clicked.connect(aspToolsUiConn.changeDrawStyleOfExtraJointsConn)
 
 
-show = RigToolsWindow(maya_main_window())
+show = RigToolsUIConn(maya_main_window())
 
 
 # ----------------------------------------------------------------------------
@@ -88,6 +80,8 @@ def windowShiftMeshConnections():
     cmds.button('destInpLd_btn', e=True, c='from rigtools.ui import ui_fill;ui_fill.addInTextField("destInp_LE")')
     cmds.button('destOutLd_btn', e=True, c='from rigtools.ui import ui_fill;ui_fill.addInTextField("destOut_LE")')
     cmds.button('shiftConnections_btn', e=True, c='mainWindow.shiftInputOutputConnectionsConn()')
+
+
 # ----------------------------------------------------------------------------
 
 
@@ -108,4 +102,5 @@ def windowCopySkin():
     cmds.button('destMeshLoad_btn', e=True, c='from rigtools.ui import ui_fill;ui_fill.addInTextField("destMesh_LE")')
     cmds.button('copySkin_btn', e=True, c='mainWindow.copySkinOnMultiObjectsConn()')
     cmds.button('skin_copySkin_btn', e=True, c='mainWindow.skinAndCopySkinConn()')
+
 # ----------------------------------------------------------------------------
