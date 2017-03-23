@@ -9,6 +9,7 @@
 
 from PySide import QtCore, QtGui
 
+
 class Ui_ShiftInpOutConnWindow(object):
     def setupUi(self, ShiftInpOutConnWindow):
         ShiftInpOutConnWindow.setObjectName("ShiftInpOutConnWindow")
@@ -117,19 +118,36 @@ class Ui_ShiftInpOutConnWindow(object):
         QtCore.QMetaObject.connectSlotsByName(ShiftInpOutConnWindow)
 
     def retranslateUi(self, ShiftInpOutConnWindow):
-        ShiftInpOutConnWindow.setWindowTitle(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Shift Mesh Input Output Connections", None, QtGui.QApplication.UnicodeUTF8))
-        self.newShapeCreate_btn.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Create", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_7.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Create New Shapes on Selected Transform.", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_5.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Enter New Shape Name:-", None, QtGui.QApplication.UnicodeUTF8))
-        self.shiftConnections_btn.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Shift Connections", None, QtGui.QApplication.UnicodeUTF8))
-        self.srcOutLd_btn.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
-        self.destInpLd_btn.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_4.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Destination Output Shape:-", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_3.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Destination Input Shape:-", None, QtGui.QApplication.UnicodeUTF8))
-        self.destOutLd_btn.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Source Output Shape:-", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_6.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Get Source Shapes", None, QtGui.QApplication.UnicodeUTF8))
-        self.srcInpLd_btn.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_2.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Source Input Shape:-", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_8.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Get Destination Shapes", None, QtGui.QApplication.UnicodeUTF8))
-
+        ShiftInpOutConnWindow.setWindowTitle(
+            QtGui.QApplication.translate("ShiftInpOutConnWindow", "Shift Mesh Input Output Connections", None,
+                                         QtGui.QApplication.UnicodeUTF8))
+        self.newShapeCreate_btn.setText(
+            QtGui.QApplication.translate("ShiftInpOutConnWindow", "Create", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_7.setText(
+            QtGui.QApplication.translate("ShiftInpOutConnWindow", "Create New Shapes on Selected Transform.", None,
+                                         QtGui.QApplication.UnicodeUTF8))
+        self.label_5.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Enter New Shape Name:-", None,
+                                                          QtGui.QApplication.UnicodeUTF8))
+        self.shiftConnections_btn.setText(
+            QtGui.QApplication.translate("ShiftInpOutConnWindow", "Shift Connections", None,
+                                         QtGui.QApplication.UnicodeUTF8))
+        self.srcOutLd_btn.setText(
+            QtGui.QApplication.translate("ShiftInpOutConnWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
+        self.destInpLd_btn.setText(
+            QtGui.QApplication.translate("ShiftInpOutConnWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Destination Output Shape:-", None,
+                                                          QtGui.QApplication.UnicodeUTF8))
+        self.label_3.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Destination Input Shape:-", None,
+                                                          QtGui.QApplication.UnicodeUTF8))
+        self.destOutLd_btn.setText(
+            QtGui.QApplication.translate("ShiftInpOutConnWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Source Output Shape:-", None,
+                                                        QtGui.QApplication.UnicodeUTF8))
+        self.label_6.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Get Source Shapes", None,
+                                                          QtGui.QApplication.UnicodeUTF8))
+        self.srcInpLd_btn.setText(
+            QtGui.QApplication.translate("ShiftInpOutConnWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Source Input Shape:-", None,
+                                                          QtGui.QApplication.UnicodeUTF8))
+        self.label_8.setText(QtGui.QApplication.translate("ShiftInpOutConnWindow", "Get Destination Shapes", None,
+                                                          QtGui.QApplication.UnicodeUTF8))

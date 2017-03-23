@@ -1,6 +1,5 @@
 import os
 
-import maya.cmds as cmds
 from PySide import QtGui
 
 from rigtools.ext import gen
@@ -52,47 +51,3 @@ class RigToolsUIConn(QtGui.QMainWindow, rigTools_ui.Ui_mainWindow):
 def main():
     winClass = RigToolsUIConn(maya_utils.maya_main_window())
     return winClass.show()
-
-
-# ----------------------------------------------------------------------------
-# window shift mesh ui connection functions.
-# ----------------------------------------------------------------------------
-def windowShiftMeshConnections():
-    """
-    ShiftInpOutConnWindow UI connections.
-    :return: ui connection
-    """
-    if cmds.window('ShiftInpOutConnWindow', exists=True):
-        cmds.deleteUI('ShiftInpOutConnWindow')
-    shiftMeshConnUI = cmds.loadUI(f=shiftMeshConnUIFile)
-    cmds.showWindow(shiftMeshConnUI)
-    cmds.button('newShapeCreate_btn', e=True, c='mainWindow.createNewShapeBtnConn()')
-    cmds.button('srcInpLd_btn', e=True, c='from rigtools.ui import ui_fill;ui_fill.addInTextField("srcInp_LE")')
-    cmds.button('srcOutLd_btn', e=True, c='from rigtools.ui import ui_fill;ui_fill.addInTextField("srcOut_LE")')
-    cmds.button('destInpLd_btn', e=True, c='from rigtools.ui import ui_fill;ui_fill.addInTextField("destInp_LE")')
-    cmds.button('destOutLd_btn', e=True, c='from rigtools.ui import ui_fill;ui_fill.addInTextField("destOut_LE")')
-    cmds.button('shiftConnections_btn', e=True, c='mainWindow.shiftInputOutputConnectionsConn()')
-
-
-# ----------------------------------------------------------------------------
-
-
-# ----------------------------------------------------------------------------
-# window copy skin and createAndCopySkin ui connection functions.
-# ----------------------------------------------------------------------------
-def windowCopySkin():
-    """
-    windowCopySkin UI connections.
-    :return: ui connection
-    """
-    if cmds.window('skinCopyWindow', exists=True):
-        cmds.deleteUI('skinCopyWindow')
-    copySkinUI = cmds.loadUI(f=skinUIFile)
-    cmds.showWindow(copySkinUI)
-    cmds.button('sourceMeshLoad_btn', e=True,
-                c='from rigtools.ui import ui_fill;ui_fill.addInTextField("sourceMesh_LE")')
-    cmds.button('destMeshLoad_btn', e=True, c='from rigtools.ui import ui_fill;ui_fill.addInTextField("destMesh_LE")')
-    cmds.button('copySkin_btn', e=True, c='mainWindow.copySkinOnMultiObjectsConn()')
-    cmds.button('skin_copySkin_btn', e=True, c='mainWindow.skinAndCopySkinConn()')
-
-# ----------------------------------------------------------------------------
