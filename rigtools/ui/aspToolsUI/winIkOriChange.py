@@ -2,13 +2,13 @@ import os
 
 from PySide import QtGui
 
-from rigtools import undoChunkOpen
-from rigtools.ui import mainWindow
+from rigtools import maya_utils
 from rigtools.ui.aspToolsUI import ui_aspIKOriChange
 from rigtools.ui import ui_fill
 from rigtools.aspTools import tools
 
 reload(ui_fill)
+reload(maya_utils)
 
 aspTools_dir = os.path.dirname(__file__)
 
@@ -25,12 +25,12 @@ class IkOrientUIConn(QtGui.QMainWindow, ui_aspIKOriChange.Ui_aspIKOriChangeWindo
         self.aspIkOriSet_btn.clicked.connect(self.asIKCtlOriChangeConn)
 
     def asIKCtlOriChangeConn(self):
-        with undoChunkOpen.UndoChunkOpen('Ik Orient Change'):
+        with maya_utils.UndoChunkOpen('Ik Orient Change'):
             jnt = self.aspIkOriJnt_LE.text()
             ctl = self.aspIkOriCtl_LE.text()
             tools.asIKCtlOriChange(jnt, ctl)
 
 
 def main():
-    winClass = IkOrientUIConn(mainWindow.maya_main_window())
+    winClass = IkOrientUIConn(maya_utils.maya_main_window())
     return winClass.show()

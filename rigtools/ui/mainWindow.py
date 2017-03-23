@@ -1,35 +1,25 @@
 import os
 
 import maya.cmds as cmds
-import maya.OpenMayaUI as omui
 from PySide import QtGui
-from shiboken import wrapInstance
 
 from rigtools.ext import gen
 from rigtools.ui import rigTools_ui
-from rigtools.ui.utilsUI import utilsConn
-from rigtools.ui.extUI import extConn
 from rigtools.ui.aspToolsUI import winIkOriChange
+from rigtools.ui.extUI import extConn
+from rigtools.ui.utilsUI import utilsConn
+from rigtools import maya_utils
 
 reload(gen)
 reload(rigTools_ui)
 reload(winIkOriChange)
 reload(utilsConn)
 reload(extConn)
+reload(maya_utils)
 
 root_dir = os.path.dirname(__file__)
 skinUIFile = os.path.join(root_dir, 'skinCopy_ui.ui')
 shiftMeshConnUIFile = os.path.join(root_dir, 'shiftInpOutConn_ui.ui')
-
-
-def maya_main_window():
-    """
-    This is to get the maya window QT pointer.
-    :return:
-    :rtype:
-    """
-    main_window_ptr = omui.MQtUtil.mainWindow()
-    return wrapInstance(long(main_window_ptr), QtGui.QWidget)
 
 
 class RigToolsUIConn(QtGui.QMainWindow, rigTools_ui.Ui_mainWindow):
@@ -59,7 +49,9 @@ class RigToolsUIConn(QtGui.QMainWindow, rigTools_ui.Ui_mainWindow):
         # self.Hide_Extra_Joints_btn.clicked.connect(aspToolsUiConn.changeDrawStyleOfExtraJointsConn)
 
 
-show = RigToolsUIConn(maya_main_window())
+def main():
+    winClass = RigToolsUIConn(maya_utils.maya_main_window())
+    return winClass.show()
 
 
 # ----------------------------------------------------------------------------

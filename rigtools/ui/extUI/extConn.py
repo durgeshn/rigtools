@@ -1,7 +1,7 @@
 from maya import cmds as cmds
 
 from rigtools.ext import gen, selection, skin
-from rigtools import undoChunkOpen
+from rigtools import maya_utils
 
 
 # --------------------------------------------------------------
@@ -12,7 +12,7 @@ def findDuplicatesConn():
     findDuplicates UI connections.
     :return: ui connection
     """
-    with undoChunkOpen.UndoChunkOpen('jointsOnSelection'):
+    with maya_utils.UndoChunkOpen('jointsOnSelection'):
         gen.findDuplicates()
 
 
@@ -21,7 +21,7 @@ def createNewShapeBtnConn():
     createNewShapeBtn UI connections.
     :return: ui connection
     """
-    with undoChunkOpen.UndoChunkOpen('createNewShape'):
+    with maya_utils.UndoChunkOpen('createNewShape'):
         newShapeName = cmds.textField('newShpName_LE', q=True, tx=True)
         parent = selection.getSelection()
         gen.createAndParentNewShape(parent[0], newShapeName)
@@ -32,7 +32,7 @@ def zeroOutConn():
     zeroOut UI connections.
     :return: ui connection
     """
-    with undoChunkOpen.UndoChunkOpen('zeroOut'):
+    with maya_utils.UndoChunkOpen('zeroOut'):
         sel = cmds.ls(sl=True)
         gen.zeroOut(sel)
 
@@ -42,7 +42,7 @@ def parentHirarchyConn():
     parentHierarchy UI connections.
     :return: ui connection
     """
-    with undoChunkOpen.UndoChunkOpen('parentHirarchy'):
+    with maya_utils.UndoChunkOpen('parentHirarchy'):
         sel = cmds.ls(sl=True)
         gen.parentHirarchy(sel)
 
@@ -55,7 +55,7 @@ def selectAllConn():
     selectAll UI connections.
     :return: ui connections
     """
-    with undoChunkOpen.UndoChunkOpen('selectAll'):
+    with maya_utils.UndoChunkOpen('selectAll'):
         selection.selectAll()
 
 
@@ -67,7 +67,7 @@ def selectInfluenceObjConn():
     getInfluenceJoint UI Connections.
     :return: ui connection
     """
-    with undoChunkOpen.UndoChunkOpen('selectInfluenceObj'):
+    with maya_utils.UndoChunkOpen('selectInfluenceObj'):
         sel = cmds.ls(sl=True)
         if sel:
             infObj = skin.getInfluenceJoint(sel)
@@ -82,7 +82,7 @@ def copySkinOnMultiObjectsConn():
     copySkinOnMultiObjects UI Connections.
     :return: ui connection
     """
-    with undoChunkOpen.UndoChunkOpen('copySkinOnMultiObjects'):
+    with maya_utils.UndoChunkOpen('copySkinOnMultiObjects'):
         source = cmds.textField('sourceMesh_LE', q=True, tx=True)
         target = cmds.textField('destMesh_LE', q=True, tx=True)
         skin.copySkinOnMultiObjects(source, [target])
@@ -93,7 +93,7 @@ def skinAndCopySkinConn():
     copySkinOnMultiObjects UI Connections.
     :return: ui connection
     """
-    with undoChunkOpen.UndoChunkOpen('skinAndCopySkin'):
+    with maya_utils.UndoChunkOpen('skinAndCopySkin'):
         source = cmds.textField('sourceMesh_LE', q=True, tx=True)
         target = cmds.textField('destMesh_LE', q=True, tx=True)
         skin.skinAndCopySkin([source], target)
@@ -104,7 +104,7 @@ def shiftInputOutputConnectionsConn():
     shiftInputOutputConnections UI connections.
     :return: ui connection
     """
-    with undoChunkOpen.UndoChunkOpen('shiftInputOutputConnections'):
+    with maya_utils.UndoChunkOpen('shiftInputOutputConnections'):
         sourceInp = cmds.textField('srcInp_LE', q=True, tx=True)
         sourceOut = cmds.textField('srcOut_LE', q=True, tx=True)
         destInp = cmds.textField('destInp_LE', q=True, tx=True)

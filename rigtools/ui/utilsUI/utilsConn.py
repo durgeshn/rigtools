@@ -1,6 +1,6 @@
 import maya.cmds as cmds
 
-from rigtools import undoChunkOpen
+from rigtools import maya_utils
 from rigtools.utils import fk
 from rigtools.utils import constraint
 from rigtools.utils import joint
@@ -14,7 +14,7 @@ def aimConstraintConn():
     aimConstraint UI connections.
     :return: ui connection
     """
-    with undoChunkOpen.UndoChunkOpen('aimConstraint'):
+    with maya_utils.UndoChunkOpen('aimConstraint'):
         aimAxis = str()
         objectUpAxis = str()
         aimValue = list()
@@ -53,7 +53,7 @@ def aimConstraintParentConn():
     aimConstraintParent UI connections.
     :return: connection
     """
-    with undoChunkOpen.UndoChunkOpen('aimConstraintParent'):
+    with maya_utils.UndoChunkOpen('aimConstraintParent'):
         aimAxis = str()
         objectUpAxis = str()
         aimValue = list()
@@ -92,7 +92,7 @@ def multiPointConstraintConn():
     mutiPointConstraint UI connections.
     :return: ui connection
     """
-    with undoChunkOpen.UndoChunkOpen('multiPointConstraint'):
+    with maya_utils.UndoChunkOpen('multiPointConstraint'):
         sel = cmds.ls(sl=True)
         cbVal = cmds.checkBox('maintainOffset_cb', q=True, v=True)
         constraint.multiPointConstraint(cbVal, sel)
@@ -103,7 +103,7 @@ def multiOrientConstraintConn():
     multiOrientConstraint UI connections.
     :return: ui connection
     """
-    with undoChunkOpen.UndoChunkOpen('multiOrientConstraint'):
+    with maya_utils.UndoChunkOpen('multiOrientConstraint'):
         sel = cmds.ls(sl=True)
         cbVal = cmds.checkBox('maintainOffset_cb', q=True, v=True)
         constraint.multiOrientConstraint(cbVal, sel)
@@ -114,7 +114,7 @@ def multiParentConstraintConn():
     multiParentConstraint UI connections.
     :return: ui connection
     """
-    with undoChunkOpen.UndoChunkOpen('multiParentConstraint'):
+    with maya_utils.UndoChunkOpen('multiParentConstraint'):
         sel = cmds.ls(sl=True)
         cbVal = cmds.checkBox('maintainOffset_cb', q=True, v=True)
         constraint.multiParentConstraint(cbVal, sel)
@@ -128,7 +128,7 @@ def fkchainConn():
     fkchain UI connections.
     :return: ui connection
     """
-    with undoChunkOpen.UndoChunkOpen('multiParentConstraint'):
+    with maya_utils.UndoChunkOpen('multiParentConstraint'):
         # get axis from ui
         axis = list()
         if cmds.radioButton('ctlAxis_X_rb', q=True, sl=True):
@@ -148,7 +148,7 @@ def jointsOnSelectionConn():
     jointsOnSelection UI connections.
     :return: ui connection
     """
-    with undoChunkOpen.UndoChunkOpen('jointsOnSelection'):
+    with maya_utils.UndoChunkOpen('jointsOnSelection'):
         sel = cmds.ls(sl=True)
         joint.jointsOnSelection(sel)
 
@@ -158,7 +158,7 @@ def noneOrientConn():
     noneOrient UI connections.
     :return: ui connection
     """
-    with undoChunkOpen.UndoChunkOpen('noneOrient'):
+    with maya_utils.UndoChunkOpen('noneOrient'):
         sel = cmds.ls(sl=True)
         joint.noneOrient(sel)
 
@@ -168,7 +168,7 @@ def orientChainConn():
     orientChain UI connections.
     :return: ui connection
     """
-    with undoChunkOpen.UndoChunkOpen('orient chain'):
+    with maya_utils.UndoChunkOpen('orient chain'):
         aimAxis = str()
         objectUpAxis = str()
         aimValue = list()
