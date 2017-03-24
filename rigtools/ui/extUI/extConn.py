@@ -77,28 +77,6 @@ def selectInfluenceObjConn():
             cmds.warning('your selection is empty')
 
 
-def copySkinOnMultiObjectsConn():
-    """
-    copySkinOnMultiObjects UI Connections.
-    :return: ui connection
-    """
-    with maya_utils.UndoChunkOpen('copySkinOnMultiObjects'):
-        source = cmds.textField('sourceMesh_LE', q=True, tx=True)
-        target = cmds.textField('destMesh_LE', q=True, tx=True)
-        skin.copySkinOnMultiObjects(source, [target])
-
-
-def skinAndCopySkinConn():
-    """
-    copySkinOnMultiObjects UI Connections.
-    :return: ui connection
-    """
-    with maya_utils.UndoChunkOpen('skinAndCopySkin'):
-        source = cmds.textField('sourceMesh_LE', q=True, tx=True)
-        target = cmds.textField('destMesh_LE', q=True, tx=True)
-        skin.skinAndCopySkin([source], target)
-
-
 def shiftInputOutputConnectionsConn():
     """
     shiftInputOutputConnections UI connections.

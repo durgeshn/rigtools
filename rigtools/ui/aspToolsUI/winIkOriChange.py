@@ -1,16 +1,9 @@
-import os
-
 from PySide import QtGui
 
 from rigtools import maya_utils
 from rigtools.ui.aspToolsUI import ui_aspIKOriChange
 from rigtools.ui import ui_fill
 from rigtools.aspTools import tools
-
-reload(ui_fill)
-reload(maya_utils)
-
-aspTools_dir = os.path.dirname(__file__)
 
 
 class IkOrientUIConn(QtGui.QMainWindow, ui_aspIKOriChange.Ui_aspIKOriChangeWindow):

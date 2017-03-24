@@ -9,6 +9,7 @@
 
 from PySide import QtCore, QtGui
 
+
 class Ui_skinCopyWindow(object):
     def setupUi(self, skinCopyWindow):
         skinCopyWindow.setObjectName("skinCopyWindow")
@@ -53,11 +54,17 @@ class Ui_skinCopyWindow(object):
         QtCore.QMetaObject.connectSlotsByName(skinCopyWindow)
 
     def retranslateUi(self, skinCopyWindow):
-        skinCopyWindow.setWindowTitle(QtGui.QApplication.translate("skinCopyWindow", "Copy Skin", None, QtGui.QApplication.UnicodeUTF8))
-        self.copySkin_btn.setText(QtGui.QApplication.translate("skinCopyWindow", "Copy Skin", None, QtGui.QApplication.UnicodeUTF8))
-        self.skin_copySkin_btn.setText(QtGui.QApplication.translate("skinCopyWindow", "Skin And Copy Skin", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_2.setText(QtGui.QApplication.translate("skinCopyWindow", "Destionation Mesh:-", None, QtGui.QApplication.UnicodeUTF8))
-        self.destMeshLoad_btn.setText(QtGui.QApplication.translate("skinCopyWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
-        self.sourceMeshLoad_btn.setText(QtGui.QApplication.translate("skinCopyWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("skinCopyWindow", "Source Mesh:-", None, QtGui.QApplication.UnicodeUTF8))
-
+        skinCopyWindow.setWindowTitle(
+            QtGui.QApplication.translate("skinCopyWindow", "Copy Skin", None, QtGui.QApplication.UnicodeUTF8))
+        self.copySkin_btn.setText(
+            QtGui.QApplication.translate("skinCopyWindow", "Copy Skin", None, QtGui.QApplication.UnicodeUTF8))
+        self.skin_copySkin_btn.setText(
+            QtGui.QApplication.translate("skinCopyWindow", "Skin And Copy Skin", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(
+            QtGui.QApplication.translate("skinCopyWindow", "Destionation Mesh:-", None, QtGui.QApplication.UnicodeUTF8))
+        self.destMeshLoad_btn.setText(
+            QtGui.QApplication.translate("skinCopyWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
+        self.sourceMeshLoad_btn.setText(
+            QtGui.QApplication.translate("skinCopyWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(
+            QtGui.QApplication.translate("skinCopyWindow", "Source Mesh:-", None, QtGui.QApplication.UnicodeUTF8))

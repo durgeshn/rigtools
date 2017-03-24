@@ -2,18 +2,21 @@ from maya import cmds as cmds
 from pymel import core as pm
 
 
-def rt_addFingerAttributes():
-    driver = ['Fingers_L']
-    # fingers = ['Fingers_L', 'Fingers_R']
+def rt_addFingerAttributes(drivers):
+    """
+    add finger extra attribute on Finger main controller.
+    :param drivers: list
+    :return: fingers connnections
+    """
     attributes = ['_Scrunch', '_Twist', '_Lean', '_Scale']
     fingerBranch = ['Index', 'Middle', 'Ring', 'Pinky', 'Thumb']
     dispAttr = '_'
-    for i in range(len(driver)):
+    for i in range(len(drivers)):
         for x in range(len(attributes)):
-            cmds.addAttr(driver[i], ln=dispAttr, at="enum", en=attributes[x][1:], k=True)
-            cmds.setAttr(driver[i] + '.' + dispAttr, l=True)
+            cmds.addAttr(drivers[i], ln=dispAttr, at="enum", en=attributes[x][1:], k=True)
+            cmds.setAttr(drivers[i] + '.' + dispAttr, l=True)
             for z in range(len(fingerBranch)):
-                cmds.addAttr(driver[i], ln=fingerBranch[z] + attributes[x], at="double", k=True)
+                cmds.addAttr(drivers[i], ln=fingerBranch[z] + attributes[x], at="double", k=True)
             dispAttr += '_'
 
 
@@ -26,6 +29,7 @@ def rt_addScrunch(attribute, controllers, axis='ry'):
     :return: connections.
     """
     for a in range(len(controllers)):
+        controllers[a] = pm.PyNode(controllers[a])
         if a == 0:
             pma = pm.createNode('plusMinusAverage', ss=True, n='pma_' + controllers[a])
             pm.connectAttr(attribute, pma + '.input1D[0]', f=True)
@@ -51,6 +55,7 @@ def rt_addFingerAttributeConnections(attribute, controllers, axis='rx'):
     :return: connections.
     """
     for a in range(len(controllers)):
+        controllers[a] = pm.PyNode(controllers[a])
         parentGrp = controllers[a].getParent()
         pm.connectAttr(attribute, parentGrp + "." + axis)
     print ('---- "%s" ----    connections done.....' % attribute),

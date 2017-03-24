@@ -8,6 +8,8 @@ from rigtools.ui.aspToolsUI import winIkOriChange
 from rigtools.ui.extUI import extConn
 from rigtools.ui.utilsUI import utilsConn
 from rigtools import maya_utils
+from rigtools.ui.extUI import winSkinCopy
+from rigtools.aspTools import tools
 
 reload(gen)
 reload(rigTools_ui)
@@ -15,6 +17,7 @@ reload(winIkOriChange)
 reload(utilsConn)
 reload(extConn)
 reload(maya_utils)
+reload(winSkinCopy)
 
 root_dir = os.path.dirname(__file__)
 skinUIFile = os.path.join(root_dir, 'skinCopy_ui.ui')
@@ -41,11 +44,11 @@ class RigToolsUIConn(QtGui.QMainWindow, rigTools_ui.Ui_mainWindow):
         self.parent_constraint_btn.clicked.connect(utilsConn.multiParentConstraintConn)
         # self.FK_btn.clicked.connect(fkchainConn)
         self.Find_Duplicates_btn.clicked.connect(gen.findDuplicates)
-        # self.select_Influence_object_btn.clicked.connect(selectInfluenceObjConn)
-        # self.copySkinOnMultipleObject_btn.clicked.connect(windowCopySkin)
+        self.select_Influence_object_btn.clicked.connect(extConn.selectInfluenceObjConn)
+        self.copySkinOnMultipleObject_btn.clicked.connect(winSkinCopy.main)
         # self.ShiftShapeConnections_btn.clicked.connect(windowShiftMeshConnections)
         self.IK_Orient_btn.clicked.connect(winIkOriChange.main)
-        # self.Hide_Extra_Joints_btn.clicked.connect(aspToolsUiConn.changeDrawStyleOfExtraJointsConn)
+        self.Hide_Extra_Joints_btn.clicked.connect(tools.changeDrawStyleOfExtraJoints)
 
 
 def main():
