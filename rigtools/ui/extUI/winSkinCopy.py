@@ -1,8 +1,8 @@
 from PySide import QtGui
 
 from rigtools import maya_utils
-from rigtools.ui.extUI import ui_skinCopy
 from rigtools.ui import ui_fill
+from rigtools.ui.extUI import ui_skinCopy
 from rigtools.ext import skin
 
 

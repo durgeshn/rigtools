@@ -1,5 +1,3 @@
-import os
-
 from PySide import QtGui
 
 from rigtools.ext import gen
@@ -10,6 +8,7 @@ from rigtools.ui.utilsUI import utilsConn
 from rigtools import maya_utils
 from rigtools.ui.extUI import winSkinCopy
 from rigtools.aspTools import tools
+from rigtools.ui.extUI import winShiftInpOut
 
 reload(gen)
 reload(rigTools_ui)
@@ -18,10 +17,6 @@ reload(utilsConn)
 reload(extConn)
 reload(maya_utils)
 reload(winSkinCopy)
-
-root_dir = os.path.dirname(__file__)
-skinUIFile = os.path.join(root_dir, 'skinCopy_ui.ui')
-shiftMeshConnUIFile = os.path.join(root_dir, 'shiftInpOutConn_ui.ui')
 
 
 class RigToolsUIConn(QtGui.QMainWindow, rigTools_ui.Ui_mainWindow):
@@ -35,18 +30,18 @@ class RigToolsUIConn(QtGui.QMainWindow, rigTools_ui.Ui_mainWindow):
         self.parent_btn.clicked.connect(extConn.parentHirarchyConn)
         self.Zero_Out_btn.clicked.connect(extConn.zeroOutConn)
         self.Select_All_btn.clicked.connect(extConn.selectAllConn)
-        # self.orient_chain_btn.clicked.connect(self.aa)
-        self.aim_constraint_btn.clicked.connect(utilsConn.aimConstraintConn)
-        self.aim_constraint_parent_btn.clicked.connect(utilsConn.aimConstraintParentConn)
+        self.orient_chain_btn.clicked.connect(lambda: utilsConn.orientChainConn(self))
+        self.aim_constraint_btn.clicked.connect(lambda: utilsConn.aimConstraintConn(self))
+        self.aim_constraint_parent_btn.clicked.connect(lambda: utilsConn.aimConstraintParentConn(self))
         self.none_Orient_btn.clicked.connect(utilsConn.noneOrientConn)
-        self.point_constraint_btn.clicked.connect(utilsConn.multiPointConstraintConn)
-        self.orient_constraint_btn.clicked.connect(utilsConn.multiOrientConstraintConn)
-        self.parent_constraint_btn.clicked.connect(utilsConn.multiParentConstraintConn)
-        # self.FK_btn.clicked.connect(fkchainConn)
+        self.point_constraint_btn.clicked.connect(lambda: utilsConn.multiPointConstraintConn(self))
+        self.orient_constraint_btn.clicked.connect(lambda: utilsConn.multiOrientConstraintConn(self))
+        self.parent_constraint_btn.clicked.connect(lambda: utilsConn.multiParentConstraintConn(self))
+        self.FK_btn.clicked.connect(lambda: utilsConn.fkchainConn(self))
         self.Find_Duplicates_btn.clicked.connect(gen.findDuplicates)
         self.select_Influence_object_btn.clicked.connect(extConn.selectInfluenceObjConn)
         self.copySkinOnMultipleObject_btn.clicked.connect(winSkinCopy.main)
-        # self.ShiftShapeConnections_btn.clicked.connect(windowShiftMeshConnections)
+        self.ShiftShapeConnections_btn.clicked.connect(winShiftInpOut.main)
         self.IK_Orient_btn.clicked.connect(winIkOriChange.main)
         self.Hide_Extra_Joints_btn.clicked.connect(tools.changeDrawStyleOfExtraJoints)
 

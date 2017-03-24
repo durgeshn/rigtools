@@ -16,17 +16,6 @@ def findDuplicatesConn():
         gen.findDuplicates()
 
 
-def createNewShapeBtnConn():
-    """
-    createNewShapeBtn UI connections.
-    :return: ui connection
-    """
-    with maya_utils.UndoChunkOpen('createNewShape'):
-        newShapeName = cmds.textField('newShpName_LE', q=True, tx=True)
-        parent = selection.getSelection()
-        gen.createAndParentNewShape(parent[0], newShapeName)
-
-
 def zeroOutConn():
     """
     zeroOut UI connections.

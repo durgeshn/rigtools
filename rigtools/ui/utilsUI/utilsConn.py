@@ -9,7 +9,7 @@ from rigtools.utils import joint
 # --------------------------------------------------------------
 # ------------------- constraint -------------------------------
 # --------------------------------------------------------------
-def aimConstraintConn():
+def aimConstraintConn(passUI):
     """
     aimConstraint UI connections.
     :return: ui connection
@@ -20,17 +20,17 @@ def aimConstraintConn():
         aimValue = list()
         objValue = list()
         # radio checks.
-        if cmds.radioButton('aimX_rb', q=True, sl=True):
+        if passUI.aimX_rb.isChecked():
             aimAxis = 'X'
-        if cmds.radioButton('aimY_rb', q=True, sl=True):
+        if passUI.aimY_rb.isChecked():
             aimAxis = 'Y'
-        if cmds.radioButton('aimZ_rb', q=True, sl=True):
+        if passUI.aimZ_rb.isChecked():
             aimAxis = 'Z'
-        if cmds.radioButton('aimObX_rb', q=True, sl=True):
+        if passUI.aimObX_rb.isChecked():
             objectUpAxis = 'X'
-        if cmds.radioButton('aimObY_rb', q=True, sl=True):
+        if passUI.aimObY_rb.isChecked():
             objectUpAxis = 'Y'
-        if cmds.radioButton('aimObZ_rb', q=True, sl=True):
+        if passUI.aimObZ_rb.isChecked():
             objectUpAxis = 'Z'
         if aimAxis == 'X':
             aimValue = [1, 0, 0]
@@ -48,7 +48,7 @@ def aimConstraintConn():
         constraint.aimConstraint(aimValue, objValue, sel)
 
 
-def aimConstraintParentConn():
+def aimConstraintParentConn(passUI):
     """
     aimConstraintParent UI connections.
     :return: connection
@@ -59,17 +59,17 @@ def aimConstraintParentConn():
         aimValue = list()
         objValue = list()
         # radio checks.
-        if cmds.radioButton('aimX_rb', q=True, sl=True):
+        if passUI.aimX_rb.isChecked():
             aimAxis = 'X'
-        if cmds.radioButton('aimY_rb', q=True, sl=True):
+        if passUI.aimY_rb.isChecked():
             aimAxis = 'Y'
-        if cmds.radioButton('aimZ_rb', q=True, sl=True):
+        if passUI.aimZ_rb.isChecked():
             aimAxis = 'Z'
-        if cmds.radioButton('aimObX_rb', q=True, sl=True):
+        if passUI.aimObX_rb.isChecked():
             objectUpAxis = 'X'
-        if cmds.radioButton('aimObY_rb', q=True, sl=True):
+        if passUI.aimObY_rb.isChecked():
             objectUpAxis = 'Y'
-        if cmds.radioButton('aimObZ_rb', q=True, sl=True):
+        if passUI.aimObZ_rb.isChecked():
             objectUpAxis = 'Z'
         if aimAxis == 'X':
             aimValue = [1, 0, 0]
@@ -87,43 +87,43 @@ def aimConstraintParentConn():
         constraint.aimConstraintParent(aimValue, objValue, sel)
 
 
-def multiPointConstraintConn():
+def multiPointConstraintConn(passUI):
     """
     mutiPointConstraint UI connections.
     :return: ui connection
     """
     with maya_utils.UndoChunkOpen('multiPointConstraint'):
         sel = cmds.ls(sl=True)
-        cbVal = cmds.checkBox('maintainOffset_cb', q=True, v=True)
-        constraint.multiPointConstraint(cbVal, sel)
+        offset = passUI.maintainOffset_cb.isChecked()
+        constraint.multiPointConstraint(offset, sel)
 
 
-def multiOrientConstraintConn():
+def multiOrientConstraintConn(passUI):
     """
     multiOrientConstraint UI connections.
     :return: ui connection
     """
     with maya_utils.UndoChunkOpen('multiOrientConstraint'):
         sel = cmds.ls(sl=True)
-        cbVal = cmds.checkBox('maintainOffset_cb', q=True, v=True)
-        constraint.multiOrientConstraint(cbVal, sel)
+        offset = passUI.maintainOffset_cb.isChecked()
+        constraint.multiOrientConstraint(offset, sel)
 
 
-def multiParentConstraintConn():
+def multiParentConstraintConn(passUI):
     """
     multiParentConstraint UI connections.
     :return: ui connection
     """
     with maya_utils.UndoChunkOpen('multiParentConstraint'):
         sel = cmds.ls(sl=True)
-        cbVal = cmds.checkBox('maintainOffset_cb', q=True, v=True)
-        constraint.multiParentConstraint(cbVal, sel)
+        offset = passUI.maintainOffset_cb.isChecked()
+        constraint.multiParentConstraint(offset, sel)
 
 
 # --------------------------------------------------------------
 # -------------------------- fk --------------------------------
 # --------------------------------------------------------------
-def fkchainConn():
+def fkchainConn(passUI):
     """
     fkchain UI connections.
     :return: ui connection
@@ -131,11 +131,11 @@ def fkchainConn():
     with maya_utils.UndoChunkOpen('multiParentConstraint'):
         # get axis from ui
         axis = list()
-        if cmds.radioButton('ctlAxis_X_rb', q=True, sl=True):
+        if passUI.ctlAxis_X_rb.isChecked():
             axis = [1, 0, 0]
-        if cmds.radioButton('ctlAxis_Y_rb', q=True, sl=True):
+        if passUI.ctlAxis_Y_rb.isChecked():
             axis = [0, 1, 0]
-        if cmds.radioButton('ctlAxis_Z_rb', q=True, sl=True):
+        if passUI.ctlAxis_Z_rb.isChecked():
             axis = [0, 0, 1]
         fk.fkchain(axis)
 
@@ -163,7 +163,7 @@ def noneOrientConn():
         joint.noneOrient(sel)
 
 
-def orientChainConn():
+def orientChainConn(passUI):
     """
     orientChain UI connections.
     :return: ui connection
@@ -173,18 +173,17 @@ def orientChainConn():
         objectUpAxis = str()
         aimValue = list()
         objValue = list()
-        # radio checks.
-        if cmds.radioButton('aimX_rb', q=True, sl=True):
+        if passUI.aimX_rb.isChecked():
             aimAxis = 'X'
-        if cmds.radioButton('aimY_rb', q=True, sl=True):
+        if passUI.aimY_rb.isChecked():
             aimAxis = 'Y'
-        if cmds.radioButton('aimZ_rb', q=True, sl=True):
+        if passUI.aimZ_rb.isChecked():
             aimAxis = 'Z'
-        if cmds.radioButton('aimObX_rb', q=True, sl=True):
+        if passUI.aimObX_rb.isChecked():
             objectUpAxis = 'X'
-        if cmds.radioButton('aimObY_rb', q=True, sl=True):
+        if passUI.aimObY_rb.isChecked():
             objectUpAxis = 'Y'
-        if cmds.radioButton('aimObZ_rb', q=True, sl=True):
+        if passUI.aimObZ_rb.isChecked():
             objectUpAxis = 'Z'
         if aimAxis == 'X':
             aimValue = [1, 0, 0]

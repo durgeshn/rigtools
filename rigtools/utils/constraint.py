@@ -74,11 +74,11 @@ def aimConstraint(aimValue, objValue, sel=None, freeze=True):
     cmds.select(sel[1])
 
 
-def multiPointConstraint(cbVal, sel=None):
+def multiPointConstraint(maintainOffset, sel=None):
     """
     point constraint all selected item with last selected object.
     :param sel: list (joint)
-    :param cbVal: bool (joint)
+    :param maintainOffset: bool (joint)
     :return: point constraint.
     """
     if not sel:
@@ -86,7 +86,7 @@ def multiPointConstraint(cbVal, sel=None):
     if not sel:
         cmds.warning('no objects selected...')
         return False
-    if cbVal:
+    if maintainOffset:
         for i in range(len(sel) - 1):
             parentObj = sel[len(sel) - 1]
             cmds.pointConstraint(parentObj, sel[i], mo=True)
@@ -96,11 +96,11 @@ def multiPointConstraint(cbVal, sel=None):
             cmds.pointConstraint(parentObj, sel[i])
 
 
-def multiOrientConstraint(cbVal, sel=None):
+def multiOrientConstraint(maintainOffset, sel=None):
     """
     orient constraint all selected item with last selected object.
     :param sel: list (joint)
-    :param cbVal: bool (joint)
+    :param maintainOffset: bool (joint)
     :return: orient constraint.
     """
     if not sel:
@@ -108,7 +108,7 @@ def multiOrientConstraint(cbVal, sel=None):
     if not sel:
         cmds.warning('no objects selected...')
         return False
-    if cbVal:
+    if maintainOffset:
         for i in range(len(sel) - 1):
             parentObj = sel[len(sel) - 1]
             cmds.orientConstraint(parentObj, sel[i], mo=True)
@@ -118,11 +118,11 @@ def multiOrientConstraint(cbVal, sel=None):
             cmds.orientConstraint(parentObj, sel[i])
 
 
-def multiParentConstraint(cbVal, sel=None):
+def multiParentConstraint(maintainOffset, sel=None):
     """
     parent constraint all selected item with last selected object.
     :param sel: list (joint)
-    :param cbVal: bool (joint)
+    :param maintainOffset: bool (joint)
     :return: parent constraint
     """
     if not sel:
@@ -130,7 +130,7 @@ def multiParentConstraint(cbVal, sel=None):
     if not sel:
         cmds.warning('no objects selected...')
         return False
-    if cbVal:
+    if maintainOffset:
         for i in range(len(sel) - 1):
             parentObj = sel[len(sel) - 1]
             cmds.parentConstraint(parentObj, sel[i], mo=True)
