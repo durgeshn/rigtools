@@ -3,6 +3,7 @@ from pymel import core as pm
 
 from rigtools.utils import constraint
 from rigtools.utils import mesure
+from rigtools import maya_utils
 
 
 def asIKCtlOriChange(joint, controller):
@@ -45,10 +46,11 @@ def changeDrawStyleOfExtraJoints():
     none draw style of unused joints in asp rig tool.
     :return: unusedJoints
     """
-    unusedJoints = cmds.ls('FKX*', 'IKX*', 'FKOffset*', type='joint')
-    for each in unusedJoints:
-        cmds.setAttr(each + '.drawStyle', 2)
-    return unusedJoints
+    with maya_utils.UndoChunkOpen('hide extra joints'):
+        unusedJoints = cmds.ls('FKX*', 'IKX*', 'FKOffset*', type='joint')
+        for each in unusedJoints:
+            cmds.setAttr(each + '.drawStyle', 2)
+        return unusedJoints
 
 
 def fkCtlInIkSpine(startCtl, endCtl, hipCtlGrps, ctlName='Fk_Spine', ctlNum=4):
