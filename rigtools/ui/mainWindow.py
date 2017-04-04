@@ -4,6 +4,7 @@ from rigtools.ext import gen
 from rigtools.ui import rigTools_ui
 from rigtools.ui.aspToolsUI import winIkOriChange
 from rigtools.ui.aspToolsUI import winFkInIkSpine
+from rigtools.ui.aspToolsUI import winFingerAttributes
 from rigtools.ui.extUI import extConn
 from rigtools.ui.utilsUI import utilsConn
 from rigtools import maya_utils
@@ -19,6 +20,7 @@ reload(utilsConn)
 reload(extConn)
 reload(maya_utils)
 reload(winSkinCopy)
+reload(winFingerAttributes)
 
 
 class RigToolsUIConn(QtGui.QMainWindow, rigTools_ui.Ui_mainWindow):
@@ -47,6 +49,7 @@ class RigToolsUIConn(QtGui.QMainWindow, rigTools_ui.Ui_mainWindow):
         self.IK_Orient_btn.clicked.connect(winIkOriChange.main)
         self.Hide_Extra_Joints_btn.clicked.connect(tools.changeDrawStyleOfExtraJoints)
         self.FK_in_IKSpine_btn.clicked.connect(winFkInIkSpine.main)
+        self.FingerSDK_btn.clicked.connect(winFingerAttributes.main)
 
 
 def main():

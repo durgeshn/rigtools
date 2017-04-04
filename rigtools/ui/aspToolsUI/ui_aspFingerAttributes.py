@@ -9,6 +9,7 @@
 
 from PySide import QtCore, QtGui
 
+
 class Ui_FingerAttributeWindow(object):
     def setupUi(self, FingerAttributeWindow):
         FingerAttributeWindow.setObjectName("FingerAttributeWindow")
@@ -94,30 +95,50 @@ class Ui_FingerAttributeWindow(object):
         QtCore.QMetaObject.connectSlotsByName(FingerAttributeWindow)
 
     def retranslateUi(self, FingerAttributeWindow):
-        FingerAttributeWindow.setWindowTitle(QtGui.QApplication.translate("FingerAttributeWindow", "ASP Add Finger Attributes", None, QtGui.QApplication.UnicodeUTF8))
-        self.textBrowser_2.setHtml(QtGui.QApplication.translate("FingerAttributeWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1) Select Finger Controllers in order like</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">IndexFinger1, IndexFinger2, IndexFinger3</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">2) on check box for add selected attributes.</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">3) create.</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
-        self.aspFaTwist_cb.setText(QtGui.QApplication.translate("FingerAttributeWindow", "Twist", None, QtGui.QApplication.UnicodeUTF8))
-        self.aspFaLean_cb.setText(QtGui.QApplication.translate("FingerAttributeWindow", "Lean", None, QtGui.QApplication.UnicodeUTF8))
-        self.aspFaScale_cb.setText(QtGui.QApplication.translate("FingerAttributeWindow", "Scale", None, QtGui.QApplication.UnicodeUTF8))
-        self.aspFaRelax_cb.setText(QtGui.QApplication.translate("FingerAttributeWindow", "Relax", None, QtGui.QApplication.UnicodeUTF8))
-        self.aspFaScrunch_cb.setText(QtGui.QApplication.translate("FingerAttributeWindow", "Scrunch", None, QtGui.QApplication.UnicodeUTF8))
-        self.aspFaFist_cb.setText(QtGui.QApplication.translate("FingerAttributeWindow", "Fist", None, QtGui.QApplication.UnicodeUTF8))
-        self.aspFaReverse_cb.setText(QtGui.QApplication.translate("FingerAttributeWindow", "Reverse", None, QtGui.QApplication.UnicodeUTF8))
-        self.aspFaCup_cb.setText(QtGui.QApplication.translate("FingerAttributeWindow", "Cup", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("FingerAttributeWindow", "Set Controller Axis:-", None, QtGui.QApplication.UnicodeUTF8))
-        self.aspFaAxisX_rb.setText(QtGui.QApplication.translate("FingerAttributeWindow", "X", None, QtGui.QApplication.UnicodeUTF8))
-        self.aspFaAxisY_rb.setText(QtGui.QApplication.translate("FingerAttributeWindow", "Y", None, QtGui.QApplication.UnicodeUTF8))
-        self.aspFaAxisZ_rb.setText(QtGui.QApplication.translate("FingerAttributeWindow", "Z", None, QtGui.QApplication.UnicodeUTF8))
-        self.aspFaLoadDriver_btn.setText(QtGui.QApplication.translate("FingerAttributeWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_2.setText(QtGui.QApplication.translate("FingerAttributeWindow", "Driver Controller:-", None, QtGui.QApplication.UnicodeUTF8))
-        self.aspFaLoadFingers_btn.setText(QtGui.QApplication.translate("FingerAttributeWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_3.setText(QtGui.QApplication.translate("FingerAttributeWindow", "Controllers:-", None, QtGui.QApplication.UnicodeUTF8))
-        self.aspFaCreate_btn.setText(QtGui.QApplication.translate("FingerAttributeWindow", "Create", None, QtGui.QApplication.UnicodeUTF8))
-
+        FingerAttributeWindow.setWindowTitle(
+            QtGui.QApplication.translate("FingerAttributeWindow", "ASP Add Finger Attributes", None,
+                                         QtGui.QApplication.UnicodeUTF8))
+        self.textBrowser_2.setHtml(QtGui.QApplication.translate("FingerAttributeWindow",
+                                                                "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                                                                "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                                                "p, li { white-space: pre-wrap; }\n"
+                                                                "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+                                                                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1) Select Finger Controllers in order like</p>\n"
+                                                                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">IndexFinger1, IndexFinger2, IndexFinger3</span></p>\n"
+                                                                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">2) on check box for add selected attributes.</p>\n"
+                                                                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">3) create.</p></body></html>",
+                                                                None, QtGui.QApplication.UnicodeUTF8))
+        self.aspFaTwist_cb.setText(
+            QtGui.QApplication.translate("FingerAttributeWindow", "Twist", None, QtGui.QApplication.UnicodeUTF8))
+        self.aspFaLean_cb.setText(
+            QtGui.QApplication.translate("FingerAttributeWindow", "Lean", None, QtGui.QApplication.UnicodeUTF8))
+        self.aspFaScale_cb.setText(
+            QtGui.QApplication.translate("FingerAttributeWindow", "Scale", None, QtGui.QApplication.UnicodeUTF8))
+        self.aspFaRelax_cb.setText(
+            QtGui.QApplication.translate("FingerAttributeWindow", "Relax", None, QtGui.QApplication.UnicodeUTF8))
+        self.aspFaScrunch_cb.setText(
+            QtGui.QApplication.translate("FingerAttributeWindow", "Scrunch", None, QtGui.QApplication.UnicodeUTF8))
+        self.aspFaFist_cb.setText(
+            QtGui.QApplication.translate("FingerAttributeWindow", "Fist", None, QtGui.QApplication.UnicodeUTF8))
+        self.aspFaReverse_cb.setText(
+            QtGui.QApplication.translate("FingerAttributeWindow", "Reverse", None, QtGui.QApplication.UnicodeUTF8))
+        self.aspFaCup_cb.setText(
+            QtGui.QApplication.translate("FingerAttributeWindow", "Cup", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(QtGui.QApplication.translate("FingerAttributeWindow", "Set Controller Axis:-", None,
+                                                        QtGui.QApplication.UnicodeUTF8))
+        self.aspFaAxisX_rb.setText(
+            QtGui.QApplication.translate("FingerAttributeWindow", "X", None, QtGui.QApplication.UnicodeUTF8))
+        self.aspFaAxisY_rb.setText(
+            QtGui.QApplication.translate("FingerAttributeWindow", "Y", None, QtGui.QApplication.UnicodeUTF8))
+        self.aspFaAxisZ_rb.setText(
+            QtGui.QApplication.translate("FingerAttributeWindow", "Z", None, QtGui.QApplication.UnicodeUTF8))
+        self.aspFaLoadDriver_btn.setText(
+            QtGui.QApplication.translate("FingerAttributeWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(QtGui.QApplication.translate("FingerAttributeWindow", "Driver Controller:-", None,
+                                                          QtGui.QApplication.UnicodeUTF8))
+        self.aspFaLoadFingers_btn.setText(
+            QtGui.QApplication.translate("FingerAttributeWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_3.setText(QtGui.QApplication.translate("FingerAttributeWindow", "Controllers:-", None,
+                                                          QtGui.QApplication.UnicodeUTF8))
+        self.aspFaCreate_btn.setText(
+            QtGui.QApplication.translate("FingerAttributeWindow", "Create", None, QtGui.QApplication.UnicodeUTF8))
