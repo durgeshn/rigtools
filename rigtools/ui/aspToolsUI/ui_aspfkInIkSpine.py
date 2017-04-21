@@ -9,6 +9,7 @@
 
 from PySide import QtCore, QtGui
 
+
 class Ui_FkInIkSpineWindow(object):
     def setupUi(self, FkInIkSpineWindow):
         FkInIkSpineWindow.setObjectName("FkInIkSpineWindow")
@@ -74,15 +75,25 @@ class Ui_FkInIkSpineWindow(object):
         QtCore.QMetaObject.connectSlotsByName(FkInIkSpineWindow)
 
     def retranslateUi(self, FkInIkSpineWindow):
-        FkInIkSpineWindow.setWindowTitle(QtGui.QApplication.translate("FkInIkSpineWindow", "fk in ik spine", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_2.setText(QtGui.QApplication.translate("FkInIkSpineWindow", "Controller Name:-", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_5.setText(QtGui.QApplication.translate("FkInIkSpineWindow", "Controller Numbers:-", None, QtGui.QApplication.UnicodeUTF8))
-        self.fkInIkSp_ctlName_LE.setText(QtGui.QApplication.translate("FkInIkSpineWindow", "Fk_Spine", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_3.setText(QtGui.QApplication.translate("FkInIkSpineWindow", "IK End Controller:-", None, QtGui.QApplication.UnicodeUTF8))
-        self.fkInIkSp_HipCtls_btn.setText(QtGui.QApplication.translate("FkInIkSpineWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
-        self.fkInIkSp_EndCtl_btn.setText(QtGui.QApplication.translate("FkInIkSpineWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
-        self.fkInIkSp_StartCtl_btn.setText(QtGui.QApplication.translate("FkInIkSpineWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("FkInIkSpineWindow", "IK Start Controller:-", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_4.setText(QtGui.QApplication.translate("FkInIkSpineWindow", "Hip Controllers Group:-", None, QtGui.QApplication.UnicodeUTF8))
-        self.fkInIkSp_create_btn.setText(QtGui.QApplication.translate("FkInIkSpineWindow", "Create", None, QtGui.QApplication.UnicodeUTF8))
-
+        FkInIkSpineWindow.setWindowTitle(
+            QtGui.QApplication.translate("FkInIkSpineWindow", "fk in ik spine", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(QtGui.QApplication.translate("FkInIkSpineWindow", "Controller Name:-", None,
+                                                          QtGui.QApplication.UnicodeUTF8))
+        self.label_5.setText(QtGui.QApplication.translate("FkInIkSpineWindow", "Controller Numbers:-", None,
+                                                          QtGui.QApplication.UnicodeUTF8))
+        self.fkInIkSp_ctlName_LE.setText(
+            QtGui.QApplication.translate("FkInIkSpineWindow", "Fk_Spine", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_3.setText(QtGui.QApplication.translate("FkInIkSpineWindow", "IK End Controller:-", None,
+                                                          QtGui.QApplication.UnicodeUTF8))
+        self.fkInIkSp_HipCtls_btn.setText(
+            QtGui.QApplication.translate("FkInIkSpineWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
+        self.fkInIkSp_EndCtl_btn.setText(
+            QtGui.QApplication.translate("FkInIkSpineWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
+        self.fkInIkSp_StartCtl_btn.setText(
+            QtGui.QApplication.translate("FkInIkSpineWindow", "<<", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(QtGui.QApplication.translate("FkInIkSpineWindow", "IK Start Controller:-", None,
+                                                        QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(QtGui.QApplication.translate("FkInIkSpineWindow", "Hip Controllers Group:-", None,
+                                                          QtGui.QApplication.UnicodeUTF8))
+        self.fkInIkSp_create_btn.setText(
+            QtGui.QApplication.translate("FkInIkSpineWindow", "Create", None, QtGui.QApplication.UnicodeUTF8))
