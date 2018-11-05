@@ -1,3 +1,5 @@
+# this code is made by amol and now philmcgi will edit it.
+
 import pymel.core as pm
 import maya.cmds as cmds
 
